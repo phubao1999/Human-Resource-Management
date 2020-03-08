@@ -1,0 +1,12 @@
+BE: {
+    Bug When Get req.params
+}
+FE: {
+    Build Login Component
+}
+
+Note:
+    Role: {
+        0 = User,
+        1 = Admin
+    }
