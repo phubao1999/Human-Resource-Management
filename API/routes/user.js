@@ -3,6 +3,18 @@ const router = express.Router();
 const User = require("../models/User");
 const bcript = require('bcryptjs');
 
+// Get User
+router.get('/', async (req, res) => {
+    try {
+        const userList = await User.find();
+        res.json(userList);
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
 // Create User
 router.post("/", async (req, res) => {
     try {
@@ -46,11 +58,53 @@ router.post("/", async (req, res) => {
     }
 });
 
-// Get User
-router.get('/', async (req, res) => {
+// Update User
+router.put('/update/', async (req, res) => {
     try {
-        const userList = await User.find();
-        res.json(userList);
+        const updated = await User.findOneAndUpdate(
+            { _id: req.query['userId'] },
+            {
+                $set: {
+                    user_mail: req.body.user_mail,
+                    user_name: req.body.user_name,
+                    password: req.body.password,
+                    salary: req.body.salary,
+                    position: req.body.position,
+                    day_of_birth: req.body.day_of_birth
+                }
+            },
+            { useFindAndModify: false }
+        );
+        res.json({
+            message: 'Update Successfully',
+            user: updated
+        })
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
+// Get Details User
+router.get('/detail/', async (req, res) => {
+    try {
+        const id = req.query['userId'];
+        const detailUser = await User.findById(id);
+        res.json(detailUser);
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
+// Delete User
+router.delete('/delete/', async (req, res) => {
+    try {
+        const id = req.query['userId'];
+        const deletedUser = await User.deleteOne({ _id: id });
+        res.json(deletedUser);
     } catch (err) {
         res.json({
             message: err
