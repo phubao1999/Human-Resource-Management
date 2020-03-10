@@ -4,11 +4,11 @@
 
 Nodejs, angular-cli, mongodb
 
-# Go to api and 
+# Go to api 
 
 `npm install`
 
-Go to web and
+# Go to web
 
 `npm install`
 
