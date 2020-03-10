@@ -1,16 +1,4 @@
-BE: {
-    Bug When Get req.params: Done,
-    API Of Contact.
-    Learn Pagination Request
-}
-FE: {
-    Build Login Component
-}
-
-Note:
-    Role: {
-        0 = User,
-        1 = Admin
-    },
-    Type Of Contact: {},
-    Type Of Notifycation: {}
+To Run This App
+Step1: Go to api: npm run dev
+Step2: Go to web: ng serve
+Step3: On Browser, Type localhost:4200 to use this web application
