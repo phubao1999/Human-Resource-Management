@@ -60,9 +60,9 @@ export class BaseService {
 
     private getHeaders(headersPairs?: any) {
         const headers = new Headers();
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('auth-token');
         if (token) {
-            headers.append('token', token);
+            headers.append('auth-token', token);
         }
         headers.append('money', 'USD');
         headers.append('locale', localStorage.getItem('locale') || 'en');
