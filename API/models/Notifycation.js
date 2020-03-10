@@ -5,7 +5,7 @@ const NotificationSchema = mongoose.Schema({
         type: Number,
         require: true
     },
-    tile: {
+    title: {
         type: String,
         require: true
     },

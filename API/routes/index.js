@@ -9,7 +9,7 @@ class RouterIndex {
 
     apiRoutes() {
         this.app.use('/user-list', user);
-        this.app.use('/notification', notification);
+        this.app.use('/notifycation', notification);
         this.app.use('/login', login);
     }
 }

@@ -30,4 +30,57 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Details Of Notifycation
+router.get('/detail', async (req, res) => {
+    try {
+        const id = req.query['id'];
+        const detailNotify = await Notification.findById(id);
+        res.json(detailNotify);
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
+// Edit Notifycation
+router.put('/update', async (req, res) => {
+    try {
+        const updated = await Notification.findOneAndUpdate(
+            { _id: req.query['id'] },
+            {
+                $set: {
+                    type: req.body.type,
+                    title: req.body.title,
+                    text: req.body.text
+                }
+            },
+            {
+                useFindAndModify: false,
+                upsert: true,
+                new: true
+            }
+        );
+        res.json({
+            message: 'Update Successfully',
+            notifycation: updated
+        });
+    } catch (err) {
+        res.json(err)
+    }
+});
+
+// Delete Notifycation
+router.delete('/delete', async (req, res) => {
+    try {
+        const id = req.query['id'];
+        const deleteNotify = await Notification.deleteOne({ _id: id });
+        res.json(deleteNotify);
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
 module.exports = router;
