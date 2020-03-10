@@ -75,7 +75,10 @@ router.delete('/delete', async (req, res) => {
     try {
         const id = req.query['id'];
         const deleteNotify = await Notification.deleteOne({ _id: id });
-        res.json(deleteNotify);
+        res.json({
+            message: 'Delete Success',
+            deleteNotify
+        });
     } catch (err) {
         res.json({
             message: err
