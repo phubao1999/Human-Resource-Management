@@ -26,7 +26,9 @@ router.get('/', async (req, res) => {
         const notificationList = await Notification.find();
         res.json(notificationList);
     } catch (err) {
-        res.json(err);
+        res.json({
+            message: err
+        });
     }
 });
 
