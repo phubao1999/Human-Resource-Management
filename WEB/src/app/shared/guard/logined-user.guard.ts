@@ -6,15 +6,15 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoginedUserGuard implements CanActivate {
     constructor(private router: Router) { }
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean> | boolean {
         const subject = new Subject<boolean>();
-        if (!localStorage.getItem('auth-token')) {
-            this.router.navigate(['/login']);
+        if (localStorage.getItem('auth-token')) {
+            this.router.navigate(['/dashboard']);
             subject.next(false);
         }
         return true;
