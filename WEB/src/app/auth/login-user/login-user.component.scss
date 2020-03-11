@@ -53,14 +53,16 @@
           border: 2px solid $light_green;
           padding: 14px 40px;
           outline: none;
-          color: #333;
+          color: #ffffff;
           border-radius: 24px;
           transition: 0.25s;
           cursor: pointer;
-      
-          &:hover {
-            background: $light_green;
-            color: #fff;
+          background: $light_green;
+
+          &:disabled {
+            cursor: not-allowed;
+            background-color: transparent;
+            color: #333;
           }
         }
       }
