@@ -22,8 +22,12 @@ const ContactSchema = mongoose.Schema({
         require: true
     },
     time_expect: {
-        type: String,
+        type: Number,
         require: false
+    },
+    accept: {
+        type: Boolean,
+        default: false
     }
 });
 
