@@ -54,6 +54,7 @@ router.put('/update', async (req, res) => {
             { _id: req.query['id'] },
             {
                 $set: {
+                    accept: req.body.accept,
                     from_to: req.body.from_to,
                     status: req.body.status,
                     title: req.body.title,
