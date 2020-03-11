@@ -9,3 +9,7 @@ API Router:
 +) Details: /detail
 +) Delete: /delete
 login: /login
+- Contact: /contact
++) Update: /update
++) details: /detail
++) Delete: /delete
