@@ -3,13 +3,13 @@ const app = express();
 const mongo = require('mongoose');
 require('dotenv/config');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cor = require('cors');
 const port = process.env.PORT || 3000;
 const routersIndex = require('./routes')(app);
 
 mongo.connect(process.env.DB_CONNECTION, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 const db = mongo.connection;
 if (!db) {
@@ -23,8 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // Middleware
-
-app.use(cors());
+app.use(cor());
 app.use(bodyParser.json());
 app.use(express.urlencoded({
     extended: false

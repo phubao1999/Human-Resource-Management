@@ -6,4 +6,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+.form_err {
+    color: red;
+    font-size: 14px;
 }
