@@ -21,7 +21,8 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadChildren: () => import('../auth/login-user/login-user.module').then(m => m.LoginUserModule)
+        loadChildren: () => import('../auth/login-user/login-user.module').then(m => m.LoginUserModule),
+        canActivate: [LoginedUserGuard]
     },
 ];
 

@@ -3,6 +3,7 @@ import { ValidateService } from './../../shared/services/helpers/validate.servic
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment as config } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-user',
@@ -60,7 +61,12 @@ export class LoginUserComponent implements OnInit {
       localStorage.setItem('auth-token', res['token']);
       // tslint:disable-next-line:no-string-literal
       localStorage.setItem('user', string);
-      this.router.navigateByUrl('dashboard');
+      const role = res['user'].role;
+      if (role === 0) {
+        this.router.navigateByUrl('dashboard');
+      } else {
+        this.router.navigateByUrl(`${config.routerLoginAdmin}`);
+      }
     }, err => {
       console.log(err.error);
       const message = err.error.message;
