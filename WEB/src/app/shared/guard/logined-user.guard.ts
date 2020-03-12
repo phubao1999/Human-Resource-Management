@@ -1,6 +1,7 @@
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { environment as config } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,8 +15,14 @@ export class LoginedUserGuard implements CanActivate {
     ): Observable<boolean> | boolean {
         const subject = new Subject<boolean>();
         if (localStorage.getItem('auth-token')) {
-            this.router.navigate(['/dashboard']);
-            subject.next(false);
+            const role = JSON.parse(localStorage.getItem('user')).role;
+            if (role === 0) {
+                this.router.navigate(['/dashboard']);
+                subject.next(false);
+            } else {
+                this.router.navigate([`${config.routerLoginAdmin}`]);
+                subject.next(false);
+            }
         }
         return true;
     }
