@@ -53,11 +53,18 @@ export class LoginUserComponent implements OnInit {
       user_mail: this.formLogin.value.userName,
       password: this.formLogin.value.password
     };
-    console.log(body);
     this.loginService.login(body).subscribe(res => {
-      console.log(res);
+      // tslint:disable-next-line:variable-name
+      const string = JSON.stringify(res['user']);
+      // tslint:disable-next-line:no-string-literal
+      localStorage.setItem('auth-token', res['token']);
+      // tslint:disable-next-line:no-string-literal
+      localStorage.setItem('user', string);
+      this.router.navigateByUrl('dashboard');
     }, err => {
-      console.log(err);
+      console.log(err.error);
+      const message = err.error.message;
+      alert(`${message}`);
     });
   }
 
