@@ -19,3 +19,9 @@ Step1: Go to api: `npm run dev`
 Step2: Go to web: `ng serve`
 
 Step3: On Browser, Type (http://localhost:4200) to use this web application
+
+# Note
+
+This App Is Still Being Develop
+
+Using lazyloading In Angular 9.
