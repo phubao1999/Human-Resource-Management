@@ -1,8 +1,7 @@
+import { LayoutModule } from './shared/layout/layout.module';
 import { Routing } from './app-routing.routing';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
-import { SharedServicesModule } from './shared/shared-service.module';
-import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,12 +18,11 @@ import { AdminComponent } from './admin/admin.component';
     AdminComponent
   ],
   imports: [
-    BrowserModule,
     Routing,
-    SharedModule,
-    SharedServicesModule,
+    BrowserModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
