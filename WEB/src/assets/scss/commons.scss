@@ -13,3 +13,13 @@ body {
     color: red;
     font-size: 14px;
 }
+
+.btn-log {
+    background-color: transparent;
+    border: 1px solid $orange;
+    color: #fff;
+    &:hover {
+        color: #333;
+        background-color: $orange;
+    }
+}

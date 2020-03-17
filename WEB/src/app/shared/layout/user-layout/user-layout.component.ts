@@ -12,4 +12,12 @@ export class UserLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  clickMenu() {
+    console.log('aaa');
+    // const menu = document.querySelector('.nav-bottom');
+    // const outLet = document.querySelector('.out-let');
+    // menu.classList.toggle('hide');
+    // outLet.classList.toggle('move');
+  }
+
 }

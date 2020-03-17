@@ -47,3 +47,9 @@ $custom: 1450px;
     @content;
   }
 }
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
