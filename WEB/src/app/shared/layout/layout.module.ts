@@ -3,13 +3,15 @@ import { SvgComponent } from './../components/svg/svg.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 
 
 @NgModule({
   declarations: [
     SvgComponent,
-    UserLayoutComponent
+    UserLayoutComponent,
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [
     SvgComponent,
-    UserLayoutComponent
+    UserLayoutComponent,
+    AdminLayoutComponent
   ]
 })
 export class LayoutModule { }
