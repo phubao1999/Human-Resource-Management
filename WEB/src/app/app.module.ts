@@ -1,16 +1,20 @@
+import { LayoutModule } from './shared/layout/layout.module';
+import { Routing } from './app.routing';
+import { PageErrorComponent } from './page-error/page-error.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageErrorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    Routing,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
