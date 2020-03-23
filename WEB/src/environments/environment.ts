@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  routerLoginAdmin: 'ng-admin',
-  tiny_api_key: '62l92kwn54azc3rs68ix68zolih2envsv48p5nn49vunt8tv',
-  hostServer: 'http://localhost:3000'
+  production: false
 };
 
 /*
